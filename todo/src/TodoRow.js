@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class extends Component {
+export class TodoRow extends Component {
   render() {
     return (
       <tr>
