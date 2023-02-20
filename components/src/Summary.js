@@ -1,11 +1,22 @@
 import React from "react";
+import { CallbackButton } from "./CallbackButton";
 
 export function Summary(props) {
   return (
-    <div className="bg-info text-white text-center p-2">
-      {props.names.map((name) => (
-        <div key={name}>{`${name} contains ${name.length} letters`}</div>
-      ))}
-    </div>
+    <React.Fragment>
+      <td>{props.index + 1}</td>
+      <td>{props.name}</td>
+      <td>{props.name.length}</td>
+      <td>
+        <CallbackButton callback={props.reverseCallback} />
+      </td>
+      <td>
+        <CallbackButton
+          theme="info"
+          text="Promote"
+          callback={() => props.promoteCallback(props.name)}
+        />
+      </td>
+    </React.Fragment>
   );
 }
