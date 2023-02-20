@@ -8,12 +8,12 @@ type product {
 
 type productPage {
   totalSize: Int!
-  products(sort: String, page: Int, pageSize: int): [product]
+  products(sort: String, page: Int, pageSize: Int): [product]
 }
 
 type orderPage {
-  totalSize: Int!
-  orders(sort: String, page: Int, pageSize: int): [order]
+  totalSize: Int
+  orders(sort: String, page: Int, pageSize: Int): [order]
 }
 
 type order {
@@ -24,17 +24,15 @@ type order {
   city: String!
   zip: String!
   country: String!
-  shipped: Boolean!
+  shipped: Boolean
   products: [productSelection]
 }
-
 type productSelection {
   quantity: Int!
   product: product
 }
-
 type Query {
-  product(id: Int!): product
+  product(id: ID!): product
   products(
     category: String
     sort: String
